@@ -1,0 +1,472 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c3435330-0160-46f5-b48e-7e01e8b12240",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Q1. What is an Exception in python ? Write the difference between Exceptions and Syntax errors."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "df99c321-7703-45ae-949f-fd3f9ecda3e2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Exceptions are a fundamental part of error handling and robust programming in Python. \n",
+    "#Exceptions are used to handle errors that may arise during the execution\n",
+    "#of a Python program. When an exceptional situation occurs, Python raises an exception,\n",
+    "#and allow you to handle errors gracefully and respond to unexpected situations in your code to prevent crashes or unexpected behavior.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d7eee820-e38c-4df7-864a-00c4631df276",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Syntax Errors: Syntax errors include forgetting to close a parenthesis or forgetting coma or colon,\n",
+    "#using a reserved keyword as a variable name, or using incorrect indentation.\n",
+    "#Syntax errors must be fixed in the code before the program can be executed.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0b5e9d68-ad24-42e4-be8e-a13c71759b82",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "example -\n",
+    "if 2 < 1\n",
+    "print('2 is smaller')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "48bf98b2-18af-4bc0-9c7b-70c27eacef8c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# we have seen in the above example colon (:) is missing and indentation is also missing."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "312f2111-fb26-4c2d-b0ec-61917ae40223",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Exceptions: Examples of exceptions include ZeroDivisionError (dividing by zero), IndexError (index out of range),\n",
+    "#FileNotFoundError (attempting to open a non-existent file), and ValueError (inappropriate argument value).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bf55595f-d283-4fa1-ac8a-b1d85bf7dcc4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "example -\n",
+    "def num(DividedBy):\n",
+    "    return 20/DividedBy\n",
+    "num(0)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d9da5d9e-248b-4efc-a6ed-00632496f105",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#We have seen in the above example we are trying to divide with zero. It will throw ZeroDivisionError "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "20ecbf3e-e716-4691-a31f-7ba957fb1ab6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Q2. What happens when an exception in not handled ? Explain with an example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d32feb54-ded8-4a9c-823e-02579a2a2a46",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#When an exception is not handled in a Python program the program doesn't stop the error from occurring.\n",
+    "def divide(x, y):\n",
+    "    return x / y"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "784e00ca-4741-4127-a285-a6984df95598",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "try:\n",
+    "    result = divide(10, 0)  # This will raise a ZeroDivisionError\n",
+    "except ValueError as e:\n",
+    "    print(\"ValueError:\", e)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a73e5fd9-ab4b-4c35-a045-37afc2d6ed3f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# The exception is not caught here\n",
+    "print(\"Program continues...\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "01525dca-93bb-4b88-b5fe-d0dfdfdf4781",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# This line will never be reached because of the unhandled exception"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "21ec0fb1-8e12-4856-bd21-fca190f6e38a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "---------------------------------------------------------------------------\n",
+    "ZeroDivisionError                         Traceback (most recent call last)\n",
+    "Cell In[9], line 6\n",
+    "      3     return x / y\n",
+    "      5 try:\n",
+    "----> 6     result = divide(10, 0)  # This will raise a ZeroDivisionError\n",
+    "      7 except ValueError as e:\n",
+    "      8     print(\"ValueError:\", e)\n",
+    "\n",
+    "Cell In[9], line 3, in divide(x, y)\n",
+    "      2 def divide(x, y):\n",
+    "----> 3     return x / y\n",
+    "\n",
+    "ZeroDivisionError: division by zero"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8457ef67-2e39-446e-9e3b-d1c526eb3cf5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Q3. Which Python statements are used to catch and handle exceptions ? Explain with an example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a5eec332-c05d-448d-bbae-6c9bbb5e494b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#In Python, we can catch and handle exceptions using try and except statements.\n",
+    "#try: try block contains the code that might raise an exception\n",
+    "#except: this code is only executed if an exception occured in the try block. The except block is required with a try block, \n",
+    "#even if it contains only the pass statement."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "6c9b4efc-d3d9-49ec-8510-f28e81c9e2e7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#example\n",
+    "try:\n",
+    "    num = int(input(\"Enter a number: \"))\n",
+    "    result = 10 / num\n",
+    "except ZeroDivisionError as e:\n",
+    "    print(\"Error: Division by zero is not allowed.\")\n",
+    "except ValueError as e:\n",
+    "    print(\"Error: Please enter a valid number.\")\n",
+    "except Exception as e:\n",
+    "    print(\"An unexpected error occurred:\", e)\n",
+    "else:\n",
+    "    print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "076138c1-aa25-4318-9178-8e5df18e3754",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Error: Division by zero is not allowed."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1e65406a-ac66-4c7e-b4ea-51aa93210192",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Q4. Explain with an example: a. try and else. b. finally. c. raise."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "7ca86168-6d36-44bb-bf60-c66e06003893",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# a. try and else\n",
+    "# try block contains the whole code and else execute with try. If try raise an error then else won't execute.\n",
+    "try:\n",
+    "    print('This is try block')\n",
+    "except Exception as e:\n",
+    "    print('Error occured')\n",
+    "else:\n",
+    "    print('Else will execute with try block')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "9f02ee44-b662-4b9e-a28d-0381a93f5e4f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#b. finally\n",
+    "#   finally block dont need any succesful execution of code it will execute each and every time with or without error.\n",
+    "    \n",
+    "try:\n",
+    "    print('This is try block')\n",
+    "except Exception as e:\n",
+    "    print('Error occured')\n",
+    "else:\n",
+    "    print('Else will execute with try block')\n",
+    "finally:\n",
+    "    print('Finally block will execute everytime with or without error')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "bbd0ac85-e307-4b4d-a5d4-c5bf4b44e0ee",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "This is try block\n",
+    "Else will execute with try block\n",
+    "This is try block\n",
+    "Else will execute with try block\n",
+    "Finally block will execute everytime with or without error"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "517334c6-3b41-42e1-879c-31eaea9a296a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#c. raise\n",
+    "#  The raise keyword is used to raise an exception. And we can define what kind of error to raise, and the text to print to the user.\n",
+    "class Marks(Exception):\n",
+    "    def __init__(self,msg):\n",
+    "        self.msg = msg"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4ccd2933-cca9-4a15-8261-1ef986c379ac",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def checkmark(m):\n",
+    "    if m < 0:\n",
+    "        raise Marks('Please enter in positive')\n",
+    "    else:\n",
+    "        print(f'Your marks is {m}') \n",
+    "try:\n",
+    "    Enter = int(input(\"Enter your marks here \"))\n",
+    "    checkmark(Enter)\n",
+    "except Marks as e:\n",
+    "    print(e)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "60661cdf-b60c-4d05-8b4b-64ec390f58a3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Please enter in positive"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "df8aed4e-8535-475a-a4b1-ba9f89312c5a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Q5. What are Custom Exceptions in python ? Why do we need custom exceptions in python ? Explain with an example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "80ffcd4e-08dc-4cb7-a1b9-c792fe05169b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# we can define custom exceptions by creating a new class that is derived from the built-in Exception class."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ce91d711-4de6-4175-a26b-77c8c78c408b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# We use Custom exceptions in Python because they allow us to create and raise exceptions that are specific to our program."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "25dcdf11-5e74-4196-b94a-7a696e977b0f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# example-\n",
+    "class CustomValueError(ValueError):\n",
+    "    def __init__(self, value):\n",
+    "        self.value = value\n",
+    "        \n",
+    "    def validate_input(value):\n",
+    "        if value < 0:\n",
+    "            raise CustomValueError(value)\n",
+    "\n",
+    "    try:\n",
+    "        user_input = int(input(\"Enter a positive number: \"))\n",
+    "        validate_input(user_input)\n",
+    "        print(\"Input is valid:\", user_input)\n",
+    "    except CustomValueError as e:\n",
+    "        print(\"Error:\", e)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "82e4c4d7-b370-481f-9528-152cf5cbd9a6",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Error: -9"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "dc583472-aa27-4dc1-af56-9ef8ad048665",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Q6. Create a custom exception class. Use this class to handle an exception."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c9a5e636-fa02-4922-9acd-a82cdb091e8a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class CustomValueError(Exception):\n",
+    "    def __init__(self, value):\n",
+    "        self.value = value"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "b18ed7fd-f9c6-45b0-b81a-3497c1010a4a",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def divide_numbers(x, y):\n",
+    "    if y == 0:\n",
+    "        raise CustomValueError(\"Can't divide by zero\")\n",
+    "    return x / y\n",
+    "\n",
+    "try:\n",
+    "    num1 = int(input(\"Enter the numerator: \"))\n",
+    "    num2 = int(input(\"Enter the denominator: \"))\n",
+    "    \n",
+    "    result = divide_numbers(num1, num2)\n",
+    "    \n",
+    "    print(\"Result:\", result)\n",
+    "except CustomValueError as e:\n",
+    "    print(\"Error:\", e)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3d70fffc-c9ea-42cc-8fb8-77c27dbe00e7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "Error: Can't divide by zero\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
